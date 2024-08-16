@@ -184,23 +184,7 @@ window.onload = function () {
         });
     });
 
-    let isContainer3Minimized = false;
 
-    window.addEventListener('resize', () => {
-        if (window.innerWidth <= 1024) {
-            if (!isContainer3Minimized) {
-                minimizeButton.click();
-                container3.classList.add('minimized');
-                isContainer3Minimized = true;
-            }
-        } else {
-            if (isContainer3Minimized) {
-                minimizeButton.click();
-                container3.classList.remove('minimized');
-                isContainer3Minimized = false;
-            }
-        }
-    });
 
     minimizeButton.addEventListener('click', () => {
         if (!isMinimized) {
@@ -259,4 +243,24 @@ window.onload = function () {
             });
         }
     });
+
+    let isContainer3Minimized = false;
+
+    function toggleMinimize() {
+        if (window.innerWidth <= 1024) {
+            if (!isContainer3Minimized) {
+                minimizeButton.click();
+                container3.classList.add('minimized');
+                isContainer3Minimized = true;
+            }
+        } else {
+            if (isContainer3Minimized) {
+                minimizeButton.click();
+                container3.classList.remove('minimized');
+                isContainer3Minimized = false;
+            }
+        }
+    }
+
+    window.addEventListener('resize', toggleMinimize);
 };
