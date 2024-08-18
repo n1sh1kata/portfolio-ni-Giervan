@@ -774,6 +774,10 @@ window.onload = function () {
     container2.innerHTML = container2Contents4;
   }
 
+  function resetSearchInput() {
+    document.querySelector('.search').value = '';
+  }
+
   // Function to populate the container with nav items
   function populateContainer(navItems) {
     container.innerHTML = ''; // clear the container
@@ -945,6 +949,8 @@ window.onload = function () {
     });
   });
   minimizeButton.addEventListener('click', () => {
+    populateContainer(navItems);
+    resetSearchInput();
     if (!isMinimized) {
       iconsContainer.classList.add('minimized');
       isMinimized = true;
