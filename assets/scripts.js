@@ -2,6 +2,7 @@ import Animation from './animations.js';
 
 window.onload = async function () {
 
+
   async function loadHtmlContent() {
     const response = await fetch('content.html');
     const htmlContent = await response.text();
@@ -408,22 +409,27 @@ window.onload = async function () {
   insertContainer2Contents();
   populateContainer(navItems);
   let isContainer3Minimized = false;
+
   function toggleMinimize() {
     if (window.innerWidth <= 1024) {
       if (!isContainer3Minimized) {
         minimizeButton.click();
         container3.classList.add('minimized');
         isContainer3Minimized = true;
+        console.log('Hello');
       }
     } else {
       if (isContainer3Minimized) {
         minimizeButton.click();
         container3.classList.remove('minimized');
         isContainer3Minimized = false;
+        console.log('Hi');
       }
     }
   }
+
   window.addEventListener('resize', toggleMinimize);
+
   // Get the elements with the class you want to click
 
   // Call the function to insert the contents
@@ -437,4 +443,5 @@ window.onload = async function () {
   animateCards3();
   animateCards4();
   animateCards5();
+  toggleMinimize();
 };
