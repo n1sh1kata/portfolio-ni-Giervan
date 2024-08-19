@@ -20,6 +20,7 @@
     --padding-2: 0 1rem;
     --padding-3: .5rem;
     --font-w-1: 700;
+    --font-w-2: 300;
 }
 
 * {
@@ -55,6 +56,10 @@ hr {
 
 .f-weight {
     font-weight: var(--font-w-1);
+}
+
+.f-weight-1 {
+    font-weight: var(--font-w-2);
 }
 
 .h-max {
@@ -326,6 +331,8 @@ input.search {
     width: 5rem;
     height: 5rem;
     border-radius: 1rem;
+    padding: var(--padding-1);
+    box-shadow: var(--box-shadow);
 }
 
 .container-profile-img {
@@ -440,8 +447,8 @@ input.search {
                 display: flex;
                 flex-direction: row;
                 flex-wrap: wrap;
-                justify-content: space-evenly;
-                gap: .5rem;
+                justify-content: center;
+                gap: .8rem;
             }
         }
     }
