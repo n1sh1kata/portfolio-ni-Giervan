@@ -76,6 +76,8 @@ window.onload = async function () {
   const searchInput = document.querySelector('.search');
   const container = document.querySelector('.container-1-1-3');
 
+
+
   function animateCards() {
     const cardElements = document.querySelectorAll('.animate-cards');
     cardElements.forEach((element) => {
@@ -461,6 +463,7 @@ window.onload = async function () {
       addContainers();
       removeButtons();
       removeButtons1();
+      openNav1();
 
       iconsContainer.classList.add('minimized');
       isMinimized = true;
@@ -479,12 +482,27 @@ window.onload = async function () {
       console.log('Hello');
     } else if (window.innerWidth <= 768) {
       removeContainers();
+      removeButtons1();
       addButtons();
-      addButtons1();
+
+      iconsContainer.classList.add('minimized');
+      isMinimized = true;
+      // Hide elements with class "remove"
+      const removeElements = iconsContainer.querySelectorAll('.remove');
+      removeElements.forEach((element) => {
+        element.classList.add('hidden');
+      });
+      // Add class to container-nav elements to override hover styles
+      const navItems = iconsContainer.querySelectorAll('.hover-1');
+      navItems.forEach((item) => {
+        item.classList.add('hover-2');
+        item.classList.remove('hover-1');
+      });
     } else {
       addContainers();
       removeButtons();
       addButtons1();
+      openNav1();
 
       iconsContainer.classList.remove('minimized', 'hover-2-hovered');
       isMinimized = false;
