@@ -161,7 +161,8 @@ hr {
 }
 
 .container-1-1,
-.container-2-1 {
+.container-2-1,
+.container-3-1 {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -464,6 +465,27 @@ input.search {
 
 .container-header {
     overflow: hidden;
+}
+
+.button-contact button {
+    background-color: var(--color-4);
+    /* Green */
+    color: var(--color-1);
+    padding: .5rem 2rem;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.button-contact button:hover {
+    background-color: var(--color-1);
+    color: var(--color-2);
+    /* Darker green on hover */
+}
+
+.button-contact button:active {
+    background-color: var(--color-4);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .no-view {

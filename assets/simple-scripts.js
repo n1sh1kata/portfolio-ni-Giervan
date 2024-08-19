@@ -1,5 +1,13 @@
 let clickEventListener = null;
 
+const TO_ADDRESS = 'giervansabalbero@gmail.com';
+const INITIAL_SUBJECT = 'JOB OFFER';
+
+function sendEmail() {
+    const url = `https://mail.google.com/mail/?view=cm&fs=1&to=${TO_ADDRESS}&su=${INITIAL_SUBJECT}`;
+    window.open(url, '_blank');
+}
+
 function openNav() {
 
     document.getElementById("container-1").style.display = "block";
