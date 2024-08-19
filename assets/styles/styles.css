@@ -92,6 +92,10 @@ hr {
     z-index: 0;
 }
 
+.no-view {
+    display: none;
+}
+
 .layer-1 {
     z-index: 1;
 }
@@ -446,6 +450,14 @@ input.search {
     }
 }
 
+.with-buttons {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    /* height: 100%; */
+    height: 100px;
+}
+
 
 /* Mobile S (max-width: 320px) */
 @media only screen and (max-width: 320px) {
@@ -464,6 +476,11 @@ input.search {
 
 /* Tablet (max-width: 768px) */
 @media only screen and (max-width: 768px) {
+
+    .container {
+        position: relative;
+    }
+
     .container-layer-1 {
         flex-direction: column;
 

@@ -146,27 +146,27 @@ window.onload = async function () {
   }
 
   function insertContainer2Contents() {
-    const container2 = document.querySelector('.container-2');
+    const container2 = document.querySelector('.container-2 .with-buttons');
     container2.innerHTML = container2Contents;
   }
 
   function insertContainer2Contents1() {
-    const container2 = document.querySelector('.container-2');
+    const container2 = document.querySelector('.container-2 .with-buttons');
     container2.innerHTML = container2Contents1;
   }
 
   function insertContainer2Contents2() {
-    const container2 = document.querySelector('.container-2');
+    const container2 = document.querySelector('.container-2 .with-buttons');
     container2.innerHTML = container2Contents2;
   }
 
   function insertContainer2Contents3() {
-    const container2 = document.querySelector('.container-2');
+    const container2 = document.querySelector('.container-2 .with-buttons');
     container2.innerHTML = container2Contents3;
   }
 
   function insertContainer2Contents4() {
-    const container2 = document.querySelector('.container-2');
+    const container2 = document.querySelector('.container-2 .with-buttons');
     container2.innerHTML = container2Contents4;
   }
 
@@ -320,7 +320,7 @@ window.onload = async function () {
       animateDesc.animate();
     });
   }
-  const minimizeButton = document.querySelector('.minimize-button');
+  const minimizeButton = document.querySelectorAll('.minimize-button');
   const iconsContainer = document.querySelector('.container-1');
   const container3 = document.querySelector('.container-3');
   let isMinimized = false;
@@ -345,58 +345,60 @@ window.onload = async function () {
     });
   });
 
-  minimizeButton.addEventListener('click', () => {
-    populateContainer(navItems);
-    resetSearchInput();
-    if (!isMinimized) {
-      iconsContainer.classList.add('minimized');
-      isMinimized = true;
-      // Hide elements with class "remove"
-      const removeElements = iconsContainer.querySelectorAll('.remove');
-      removeElements.forEach((element) => {
-        element.classList.add('hidden');
-      });
-      // Add class to container-nav elements to override hover styles
-      const navItems = iconsContainer.querySelectorAll('.hover-1');
-      navItems.forEach((item) => {
-        item.classList.add('hover-2');
-        item.classList.remove('hover-1');
-      });
-      // Add center-icon class to elements with f-c class
-      const fCElements = iconsContainer.querySelectorAll('.f-c');
-      fCElements.forEach((element) => {
-        element.classList.add('center-icon');
-      });
-      const iconElements = iconsContainer.querySelectorAll('.fa-square-minus');
-      iconElements.forEach((element) => {
-        element.classList.add('fa-expand');
-        element.classList.remove('fa-square-minus');
-      });
-    } else {
-      iconsContainer.classList.remove('minimized', 'hover-2-hovered');
-      isMinimized = false;
-      // Show elements with class "remove"
-      const removeElements = iconsContainer.querySelectorAll('.remove');
-      removeElements.forEach((element) => {
-        element.classList.remove('hidden');
-      });
-      // Remove class from container-nav elements to restore hover styles
-      const navItems = iconsContainer.querySelectorAll('.hover-2');
-      navItems.forEach((item) => {
-        item.classList.add('hover-1');
-        item.classList.remove('hover-2');
-      });
-      // Remove center-icon class from elements with f-c class
-      const fCElements = iconsContainer.querySelectorAll('.f-c');
-      fCElements.forEach((element) => {
-        element.classList.remove('center-icon');
-      });
-      const iconElements = iconsContainer.querySelectorAll('.fa-expand');
-      iconElements.forEach((element) => {
-        element.classList.add('fa-square-minus');
-        element.classList.remove('fa-expand');
-      });
-    }
+  minimizeButton.forEach((button) => {
+    button.addEventListener('click', () => {
+      populateContainer(navItems);
+      resetSearchInput();
+      if (!isMinimized) {
+        iconsContainer.classList.add('minimized');
+        isMinimized = true;
+        // Hide elements with class "remove"
+        const removeElements = iconsContainer.querySelectorAll('.remove');
+        removeElements.forEach((element) => {
+          element.classList.add('hidden');
+        });
+        // Add class to container-nav elements to override hover styles
+        const navItems = iconsContainer.querySelectorAll('.hover-1');
+        navItems.forEach((item) => {
+          item.classList.add('hover-2');
+          item.classList.remove('hover-1');
+        });
+        // Add center-icon class to elements with f-c class
+        const fCElements = iconsContainer.querySelectorAll('.f-c');
+        fCElements.forEach((element) => {
+          element.classList.add('center-icon');
+        });
+        const iconElements = iconsContainer.querySelectorAll('.fa-square-minus');
+        iconElements.forEach((element) => {
+          element.classList.add('fa-expand');
+          element.classList.remove('fa-square-minus');
+        });
+      } else {
+        iconsContainer.classList.remove('minimized', 'hover-2-hovered');
+        isMinimized = false;
+        // Show elements with class "remove"
+        const removeElements = iconsContainer.querySelectorAll('.remove');
+        removeElements.forEach((element) => {
+          element.classList.remove('hidden');
+        });
+        // Remove class from container-nav elements to restore hover styles
+        const navItems = iconsContainer.querySelectorAll('.hover-2');
+        navItems.forEach((item) => {
+          item.classList.add('hover-1');
+          item.classList.remove('hover-2');
+        });
+        // Remove center-icon class from elements with f-c class
+        const fCElements = iconsContainer.querySelectorAll('.f-c');
+        fCElements.forEach((element) => {
+          element.classList.remove('center-icon');
+        });
+        const iconElements = iconsContainer.querySelectorAll('.fa-expand');
+        iconElements.forEach((element) => {
+          element.classList.add('fa-square-minus');
+          element.classList.remove('fa-expand');
+        });
+      }
+    });
   });
 
   searchInput.addEventListener('input', (e) => {
@@ -410,21 +412,93 @@ window.onload = async function () {
   populateContainer(navItems);
   let isContainer3Minimized = false;
 
+  function removeButtons() {
+    const elements = document.querySelectorAll('.no-view-button');
+    elements.forEach(function (element) {
+      element.classList.add('no-view');
+    });
+  }
+
+  function addButtons() {
+    const elements = document.querySelectorAll('.no-view-button');
+    elements.forEach(function (element) {
+      element.classList.remove('no-view');
+    });
+  }
+
+  function removeButtons1() {
+    const elements = document.querySelectorAll('.no-view-button-1');
+    elements.forEach(function (element) {
+      element.classList.add('no-view');
+    });
+  }
+
+  function addButtons1() {
+    const elements = document.querySelectorAll('.no-view-button-1');
+    elements.forEach(function (element) {
+      element.classList.remove('no-view');
+    });
+  }
+
+  function removeContainers() {
+    const elements = document.querySelectorAll('.container-1, .container-3');
+    elements.forEach(function (element) {
+      element.classList.add('no-view');
+
+    });
+  }
+
+  function addContainers() {
+    const elements = document.querySelectorAll('.container-1, .container-3');
+    elements.forEach(function (element) {
+      element.classList.remove('no-view');
+
+    });
+  }
+
   function toggleMinimize() {
-    if (window.innerWidth <= 1024) {
-      if (!isContainer3Minimized) {
-        minimizeButton.click();
-        container3.classList.add('minimized');
-        isContainer3Minimized = true;
-        console.log('Hello');
-      }
+    if (window.innerWidth <= 1024 && window.innerWidth > 768) {
+      addContainers();
+      removeButtons();
+      removeButtons1();
+
+      iconsContainer.classList.add('minimized');
+      isMinimized = true;
+      // Hide elements with class "remove"
+      const removeElements = iconsContainer.querySelectorAll('.remove');
+      removeElements.forEach((element) => {
+        element.classList.add('hidden');
+      });
+      // Add class to container-nav elements to override hover styles
+      const navItems = iconsContainer.querySelectorAll('.hover-1');
+      navItems.forEach((item) => {
+        item.classList.add('hover-2');
+        item.classList.remove('hover-1');
+      });
+
+      console.log('Hello');
+    } else if (window.innerWidth <= 768) {
+      removeContainers();
+      addButtons();
+      addButtons1();
     } else {
-      if (isContainer3Minimized) {
-        minimizeButton.click();
-        container3.classList.remove('minimized');
-        isContainer3Minimized = false;
-        console.log('Hi');
-      }
+      addContainers();
+      removeButtons();
+      addButtons1();
+
+      iconsContainer.classList.remove('minimized', 'hover-2-hovered');
+      isMinimized = false;
+      // Show elements with class "remove"
+      const removeElements = iconsContainer.querySelectorAll('.remove');
+      removeElements.forEach((element) => {
+        element.classList.remove('hidden');
+      });
+      // Remove class from container-nav elements to restore hover styles
+      const navItems = iconsContainer.querySelectorAll('.hover-2');
+      navItems.forEach((item) => {
+        item.classList.add('hover-1');
+        item.classList.remove('hover-2');
+      });
     }
   }
 
